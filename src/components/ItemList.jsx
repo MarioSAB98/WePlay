@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect } from "react";
 import { RiDeleteBinLine } from "@remixicon/react";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
@@ -11,7 +11,6 @@ const ItemList = () => {
   const [selectedState, setSelectedState] = useState("");
   const [animateTotal, setAnimateTotal] = useState(false);
   const [animateTax, setAnimateTax] = useState(false);
-  const parentRef = useRef(null);
 
   const addItem = () => {
     if (!name) {
@@ -63,15 +62,7 @@ const ItemList = () => {
   }, [taxAmount]);
 
   return (
-    <div
-      ref={parentRef}
-      className="max-w-md mx-auto p-6 bg-white bg-opacity-50 rounded-xl shadow-md space-y-4 cursor-default transition-all duration-300 overflow-hidden"
-      style={{
-        maxHeight: `${
-          parentRef.current ? parentRef.current.scrollHeight : 0
-        }px`,
-      }}
-    >
+    <div className="max-w-md mx-auto p-6 bg-white bg-opacity-50 rounded-xl shadow-md space-y-4 cursor-default max-h-screen overflow-hidden">
       <ToastContainer position="top-left" />
       <h1 className="text-xl font-semibold text-primary">Item List</h1>
       <div className="flex space-x-2">
